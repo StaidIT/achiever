@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATchiever | Sign up</title>
     <link rel="shortcut icon" href="{{ asset('images/components/Logo.png') }}" type="image/x-icon">
+
+    <style>
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear {
+            display: none;
+        }
+
+        input[type="password"]::-webkit-credentials-auto-fill-button,
+        input[type="password"]::-webkit-textfield-decoration-container {
+            display: none !important;
+        }
+    </style>
+
 </head>
 <body class="w-screen h-screen overflow-hidden bg-[#128C40] font-sans">
 
@@ -16,7 +29,7 @@
         <div class="w-full max-w-[400px] flex flex-col rounded-3xl overflow-hidden shadow-2xl bg-white"
              style="max-height: 92dvh;">
 
-            {{-- Green header - Reduced padding slightly to accommodate new field --}}
+            {{-- Green header --}}
             <div class="bg-[#26AF5A] flex flex-col items-center justify-center text-white
                         py-[clamp(0.75rem,2.5dvh,1.5rem)] px-6 shrink-0 gap-1">
                 <img src="{{ asset('images/components/Logo.png') }}" alt="Logo"
@@ -30,7 +43,7 @@
                    style="font-size:clamp(0.65rem,1.6dvh,0.8rem)">Quiz Game</p>
             </div>
 
-            {{-- White form body - Added overflow-y-auto for small screens --}}
+            {{-- White form body --}}
             <div class="flex-1 overflow-y-auto px-[clamp(1.25rem,5vw,2rem)] py-[clamp(1rem,2.5dvh,1.5rem)]">
 
                 <h4 class="font-bold m-0 text-gray-800 tracking-wide"
@@ -59,19 +72,49 @@
                     </div>
 
                     {{-- Password --}}
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1 relative">
                         <label class="ps-1 font-semibold text-gray-700" style="font-size:0.75rem">Password</label>
-                        <input type="password" placeholder="••••••••" name="password"
+                        <input type="password" placeholder="••••••••" name="password" id="passwordInput_mobile"
                                class="border border-gray-200 rounded-full ps-5 outline-none bg-gray-50 w-full focus:border-[#128C40] focus:bg-white transition-all duration-200"
                                style="height:clamp(38px,5dvh,48px); font-size:0.85rem">
+                        {{-- OPEN EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="flex z-[100] size-6 absolute right-4 bottom-2 cursor-pointer text-gray-600"
+                            id="openedEye_mobile">
+                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                        </svg>
+                        {{-- CLOSE EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="hidden z-[100] size-6 absolute right-4 bottom-2 cursor-pointer text-gray-600"
+                            id="closedEye_mobile">
+                            <path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" />
+                            <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" />
+                            <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
+                        </svg>
                     </div>
 
                     {{-- Confirm Password --}}
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1 relative">
                         <label class="ps-1 font-semibold text-gray-700" style="font-size:0.75rem">Confirm Password</label>
-                        <input type="password" placeholder="••••••••" name="password_confirmation"
+                        <input type="password" placeholder="••••••••" name="password_confirmation" id="confirm_passwordInput_mobile"
                                class="border border-gray-200 rounded-full ps-5 outline-none bg-gray-50 w-full focus:border-[#128C40] focus:bg-white transition-all duration-200"
                                style="height:clamp(38px,5dvh,48px); font-size:0.85rem">
+                        {{-- OPEN EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="flex z-[100] size-6 absolute right-4 bottom-2 cursor-pointer text-gray-600"
+                            id="confirm_openedEye_mobile">
+                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                        </svg>
+                        {{-- CLOSE EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="hidden z-[100] size-6 absolute right-4 bottom-2 cursor-pointer text-gray-600"
+                            id="confirm_closedEye_mobile">
+                            <path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" />
+                            <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" />
+                            <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
+                        </svg>
                     </div>
 
                     @if ($errors->any())
@@ -113,7 +156,6 @@
             <div class="text-center">
                 <h1 class="font-bold m-0 leading-none tracking-wide"
                     style="font-size:clamp(2rem,4.5vw,3.5rem)">CATchiever</h1>
-                
             </div>
 
             <div class="bg-yellow-300 rounded-full"
@@ -140,7 +182,6 @@
                     Create your account now to review and ace your entrance exam.
                 </p>
 
-                {{-- Inputs - Using slightly tighter margins to keep the form contained --}}
                 <div class="flex flex-col gap-[clamp(0.5rem,1.8vh,0.9rem)]">
                     <div class="flex flex-col gap-1">
                         <label class="ps-2 font-semibold text-gray-700 text-xs uppercase"><strong>First Name</strong> and <strong>Last Name</strong></label>
@@ -156,18 +197,50 @@
                                style="height:clamp(40px,5vh,52px)">
                     </div>
 
-                    <div class="flex flex-col gap-1">
+                    {{-- Desktop Password --}}
+                    <div class="flex flex-col gap-1 relative">
                         <label class="ps-2 font-semibold text-gray-700 text-xs uppercase">Password</label>
-                        <input type="password" placeholder="••••••••" name="password"
+                        <input type="password" placeholder="••••••••" name="password" id="passwordInput_desktop"
                                class="border border-gray-200 rounded-full ps-5 outline-none bg-gray-50 w-full focus:border-[#128C40] focus:bg-white transition-all duration-200"
                                style="height:clamp(40px,5vh,52px)">
+                        {{-- OPEN EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="flex z-[100] size-6 absolute right-4 bottom-2.5 cursor-pointer text-gray-600"
+                            id="openedEye_desktop">
+                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                        </svg>
+                        {{-- CLOSE EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="hidden z-[100] size-6 absolute right-4 bottom-2.5 cursor-pointer text-gray-600"
+                            id="closedEye_desktop">
+                            <path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" />
+                            <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" />
+                            <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
+                        </svg>
                     </div>
 
-                    <div class="flex flex-col gap-1">
+                    {{-- Desktop Confirm Password --}}
+                    <div class="flex flex-col gap-1 relative">
                         <label class="ps-2 font-semibold text-gray-700 text-xs uppercase">Confirm Password</label>
-                        <input type="password" placeholder="••••••••" name="password_confirmation"
+                        <input type="password" placeholder="••••••••" name="password_confirmation" id="confirm_passwordInput_desktop"
                                class="border border-gray-200 rounded-full ps-5 outline-none bg-gray-50 w-full focus:border-[#128C40] focus:bg-white transition-all duration-200"
                                style="height:clamp(40px,5vh,52px)">
+                        {{-- OPEN EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="flex z-[100] size-6 absolute right-4 bottom-2.5 cursor-pointer text-gray-600"
+                            id="confirm_openedEye_desktop">
+                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                        </svg>
+                        {{-- CLOSE EYE --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                            class="hidden z-[100] size-6 absolute right-4 bottom-2.5 cursor-pointer text-gray-600"
+                            id="confirm_closedEye_desktop">
+                            <path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" />
+                            <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" />
+                            <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
+                        </svg>
                     </div>
                 </div>
 
@@ -194,6 +267,6 @@
         </div>
     </div>
 
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/functions/Auth/Sign_Up.js'])
 </body>
 </html>

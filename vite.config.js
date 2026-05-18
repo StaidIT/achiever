@@ -21,9 +21,11 @@ export default defineConfig({
 
                 // AUTH - JS
                 'resources/js/functions/Auth/logout.js',
+                'resources/js/functions/Auth/Log_In.js',
+                'resources/js/functions/Auth/Sign_Up.js',
                 'resources/js/functions/OTP_Verification_Page/Resend_OTP.js', 
                 'resources/js/functions/OTP_Verification_Page/OTP_inputs.js',
-                
+                                
                 // USER - JS
                 'resources/js/functions/pages/Home.js',
                 
