@@ -28,6 +28,9 @@ export default defineConfig({
                                 
                 // USER - JS
                 'resources/js/functions/pages/Home.js',
+
+                // MODAL - JS
+                'resources/js/functions/Modals/User_Data.js',
                 
             ],
             refresh: true,

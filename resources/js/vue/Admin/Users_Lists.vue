@@ -1,6 +1,10 @@
 <template>
     <ul class="users-ul w-full grid md:grid-cols-2 grid-cols 1 gap-2">
-        <li class="bg-[#f1f1f1] h-[60px] flex items-center justify-between py-2 px-4 rounded-lg cursor-pointer" v-for="user in users">
+        <li class="bg-[#f1f1f1] h-[60px] flex items-center justify-between py-2 px-4 rounded-lg cursor-pointer" 
+            v-for="user in users"
+            :key="user.id"
+            @click="openModal(user)"
+            >
             <!-- USER INFO -->
             <div class="gap-3 flex">
                 <div class="w-[35px] h-[35px] flex items-center justify-center flex-row rounded-full bg-[#26AF5A] text-white font-bold text-[16px]">
@@ -27,6 +31,14 @@
     const props = defineProps({
         users: Array
     });
+
+    const emit = defineEmits([
+        'open-user-modal'
+    ]);
+
+    const openModal = (user) => {
+        emit('open-user-modal', user);
+    };
 </script>
 
 <style scope>

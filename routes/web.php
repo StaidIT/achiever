@@ -9,7 +9,6 @@ use App\Http\Controllers\HiddenForms\ExamCategoryController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-
 Route::middleware(['guest'])->group(function(){
     Route::get('/', function () {
         return view('Auth.Log_In');
@@ -89,7 +88,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
 
     Route::get('/users', function(){
 
-        $users = User::select('name', 'email','role')->get();
+        $users = User::select('name', 'email','role', 'created_at')->get();
 
         $total = ([
             'counted' => $users->count(),

@@ -9,7 +9,15 @@
 </head>
 <body class="w-screen h-screen overflow-hidden bg-[#128C40] font-sans flex flex-row">
 
-    <div id="app" class="w-full h-full flex flex-col overflow-auto">
+    
+
+    <div id="app" v-cloak class="w-full h-full flex flex-col overflow-auto">
+
+        <user-data-modal
+        :show="showUserModal"
+        :user="selectedUser"
+        @close="showUserModal = false"
+        ></user-data-modal>
 
         {{-- LEFT NAVIGATION BAR (TABLET and COMPUTER) --}}
         @include('Admin.Components.Navigation.TabletAndComputerNav')
@@ -35,13 +43,21 @@
                 </button>
             </div>
 
-            <users-lists :users='@json($users->where('role', 'admin')->values())'></users-lists>
+            <users-lists
+                @open-user-modal="openUserModal"
+                :users='@json($users->where('role', 'admin')->values())'
+                >
+            </users-lists>
 
             <div class=" w-full flex items-center justify-between px-2 text-white my-3">
                 <h3 class="text-xl font-bold ">Students</h3>
             </div>
 
-            <users-lists :users='@json($users->where('role', 'student')->values())'></users-lists>
+            <users-lists 
+                @open-user-modal="openUserModal"
+                :users='@json($users->where('role', 'student')->values())'
+                >
+            </users-lists>
             
         </main>
 
